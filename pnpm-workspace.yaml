@@ -1,0 +1,28 @@
+packages:
+  - 'apps/*'
+  - 'libs/*'
+allowBuilds:
+  nx: true
+minimumReleaseAgeExclude:
+  - '@typescript-eslint/eslint-plugin@8.64.0'
+  - '@typescript-eslint/parser@8.64.0'
+  - '@typescript-eslint/project-service@8.64.0'
+  - '@typescript-eslint/scope-manager@8.64.0'
+  - '@typescript-eslint/tsconfig-utils@8.64.0'
+  - '@typescript-eslint/type-utils@8.64.0'
+  - '@typescript-eslint/types@8.64.0'
+  - '@typescript-eslint/typescript-estree@8.64.0'
+  - '@typescript-eslint/utils@8.64.0'
+  - '@typescript-eslint/visitor-keys@8.64.0'
+  - typescript-eslint@8.64.0
+  - '@nx/nx-darwin-arm64@23.1.0'
+  - '@nx/nx-darwin-x64@23.1.0'
+  - '@nx/nx-freebsd-x64@23.1.0'
+  - '@nx/nx-linux-arm-gnueabihf@23.1.0'
+  - '@nx/nx-linux-arm64-gnu@23.1.0'
+  - '@nx/nx-linux-arm64-musl@23.1.0'
+  - '@nx/nx-linux-x64-gnu@23.1.0'
+  - '@nx/nx-linux-x64-musl@23.1.0'
+  - '@nx/nx-win32-arm64-msvc@23.1.0'
+  - '@nx/nx-win32-x64-msvc@23.1.0'
+  - nx@23.1.0

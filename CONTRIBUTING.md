@@ -9,21 +9,23 @@ Thank you for contributing. This repository enforces strict standards so that ev
 
 ## 1. Git Flow
 
-| Branch      | Purpose                 | Branches from | PRs into                  |
-|-------------|-------------------------|---------------|---------------------------|
-| `main`      | Production-ready        | —             | —                         |
-| `develop`   | Integration / staging   | —             | —                         |
-| `feature/*` | New work                | `develop`     | `develop`                 |
-| `release/*` | Release preparation     | `develop`     | `main`, then `develop` (two separate squash PRs) |
-| `hotfix/*`  | Production fixes        | `main`        | `main`, then `develop` (two separate squash PRs) |
+| Branch      | Purpose               | Branches from | PRs into                                         |
+| ----------- | --------------------- | ------------- | ------------------------------------------------ |
+| `main`      | Production-ready      | —             | —                                                |
+| `develop`   | Integration / staging | —             | —                                                |
+| `feature/*` | New work              | `develop`     | `develop`                                        |
+| `release/*` | Release preparation   | `develop`     | `main`, then `develop` (two separate squash PRs) |
+| `hotfix/*`  | Production fixes      | `main`        | `main`, then `develop` (two separate squash PRs) |
 
 Rules:
+
 - Never commit directly to `main` or `develop`. Always work in a `feature/*`, `release/*`, or `hotfix/*` branch.
 - **All merges use the squash strategy.** Each PR produces one squashed commit on its target branch. A `release/*` or `hotfix/*` change reaches both `main` and `develop` via **two separate squash PRs** (one into `main`, one into `develop`).
 
 ## 2. Commit Standards
 
 ### Conventional Commits with mandatory scope
+
 Every commit message has the form:
 
 ```
@@ -39,15 +41,18 @@ Every commit message has the form:
 Example: `feat(auth-data-access): add login endpoint`
 
 ### 50 / 72 rule (strict)
+
 - Subject line **≤ 50 characters** — a hard limit, never exceeded.
 - Body prose **≤ 72 columns** — a hard limit, never exceeded. Both limits are enforced in review.
 - **Wrap efficiently.** Fill each line close to 72 columns — avoid ragged fragments (e.g. a 10-char line beside a 71-char line). Break at clause/sentence boundaries, never mid-word, to produce elegant, easy-to-read messages. Agents: see `AGENTS.md` for the explicit how-to.
-- Use the body to explain *why*, not *what*.
+- Use the body to explain _why_, not _what_.
 
 ### GPG signing
+
 All commits must be GPG-signed (`git commit -S`). Unsigned commits are rejected.
 
 ### `fixup!` / autosquash workflow
+
 During PR review, address feedback with fixup commits rather than amending force-pushes:
 
 ```bash
@@ -58,9 +63,11 @@ git rebase -i --autosquash <base>
 The PR is **squash-merged** at close, so the fixups collapse into clean final commits.
 
 ### Keep the tree clean
+
 Update `.gitignore` / add `.gitkeep` **alongside** the code changes that require them.
 
 ### Atomic, self-contained, matched to an issue
+
 - **One logical change per commit.** Do not mix unrelated work.
 - **Self-contained:** the commit must independently build, lint, typecheck, test, and deploy. Never push WIP or broken intermediate commits to a shared branch.
 - **Matched to an issue:** every commit references its issue via a trailer — `Closes: #N` (closes the issue when merged to `develop`) or `Refs: #N` (reference only). A commit with no issue reference is rejected in review.
@@ -85,12 +92,12 @@ The locked taxonomy is 19 labels; GitHub default labels were removed.
 Adding or removing any label must also update the commitlint
 scope-enum in the same PR (see §4).
 
-| Category | Labels |
-|----------|--------|
-| Epic | `epic:infrastructure`, `epic:marketing-site` |
-| Type | `type:feat`, `type:docs`, `type:fix`, `type:style`, `type:perf`, `type:refactor`, `type:test`, `type:build`, `type:ci`, `type:chore`, `type:revert` |
-| Scope | `scope:repo`, `scope:tooling`, `scope:ci` (commit-only: `deps`) |
-| Priority | `P0`, `P1`, `P2` |
+| Category | Labels                                                                                                                                              |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Epic     | `epic:infrastructure`, `epic:marketing-site`                                                                                                        |
+| Type     | `type:feat`, `type:docs`, `type:fix`, `type:style`, `type:perf`, `type:refactor`, `type:test`, `type:build`, `type:ci`, `type:chore`, `type:revert` |
+| Scope    | `scope:repo`, `scope:tooling`, `scope:ci` (commit-only: `deps`)                                                                                     |
+| Priority | `P0`, `P1`, `P2`                                                                                                                                    |
 
 Note: `deps` is a commit scope only and is intentionally not a GitHub
 label.

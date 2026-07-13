@@ -23,6 +23,7 @@ Production-grade digital platform for ADC, spanning cooperative and commercial a
 ## Committing
 
 This repo follows strict standards:
+
 - [Conventional Commits](https://www.conventionalcommits.org/) with mandatory scope
 - 50/72 subject/body rule (both are hard limits)
 - All commits must be GPG-signed
