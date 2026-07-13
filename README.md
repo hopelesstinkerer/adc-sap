@@ -24,11 +24,13 @@ Production-grade digital platform for ADC, spanning cooperative and commercial a
 
 This repo follows strict standards:
 - [Conventional Commits](https://www.conventionalcommits.org/) with mandatory scope
-- 50/72 subject/body rule
+- 50/72 subject/body rule (both are hard limits)
 - All commits must be GPG-signed
-- Each commit must be independently buildable and testable
+- Each commit is atomic, self-contained, and independently buildable, testable, and deployable
+- Every commit references its issue via a `Closes: #N` / `Refs: #N` footer
+- Git Flow branching: `feature/*` → `develop`; `release/*` / `hotfix/*` → `main`
 
-Full conventions will be documented in CONTRIBUTING.md (added in Issue #2).
+Full conventions are documented in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
