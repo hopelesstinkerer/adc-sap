@@ -2,6 +2,7 @@
 
 [![TypeScript](https://img.shields.io/badge/lang-TypeScript-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
 [![Nx](https://img.shields.io/badge/monorepo-Nx-143055.svg?logo=nx)](https://nx.dev)
+[![CI Status](https://github.com/hopelesstinkerer/adc-sap/actions/workflows/ci.yml/badge.svg)](https://github.com/hopelesstinkerer/adc-sap/actions/workflows/ci.yml)
 
 **Agro Development Cooperative — Smart Agriculture Platform**
 
