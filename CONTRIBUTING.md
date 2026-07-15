@@ -35,7 +35,7 @@ Every commit message has the form:
 ```
 
 - `<type>` — one of the allowed types (see §5).
-- `<scope>` — **mandatory**. The project/domain the change belongs to (e.g. `repo`, `tooling`, `ci`). Currently allowed scopes: `repo`, `tooling`, `ci`, and `deps` (commit-scope only — never a GitHub label).
+- `<scope>` — **mandatory**. The project/domain the change belongs to (e.g. `repo`, `tooling`, `ci`). Allowed scopes: the meta set `repo`, `tooling`, `ci`, `deps` (commit-scope only — never a GitHub label) **plus any `<domain>-<layer>` / `<app>-app` project scope** per `docs/architecture/naming.md`.
 - `<subject>` — short summary.
 
 Example: `feat(auth-data-access): add login endpoint`
@@ -81,7 +81,7 @@ Update `.gitignore` / add `.gitkeep` **alongside** the code changes that require
 
 ## 4. Taxonomy Sync Rule
 
-The `scope:*` GitHub label set and the commitlint allowed-scope enum are kept **in lockstep**:
+The `scope:*` GitHub label set and the commitlint allowed scopes are kept **in lockstep**. Commit scope validation is performed by the commitlint `scope-or-project` rule (see `commitlint.config.ts`): meta scopes are enumerated, and project scopes are matched against the `docs/architecture/naming.md` pattern. A new `scope:<domain>` label must therefore be accompanied by a valid `<domain>-<layer>` / `<app>-app` project scope in the same PR.
 
 - Adding or removing a `scope:*` label ⇒ update the commitlint config in the **same PR**.
 - The two must never drift. If a scope exists as a label, it must be a valid commit scope, and vice versa — with the single exception of `deps`, which is a commit-scope only (never a label).
@@ -90,7 +90,7 @@ The `scope:*` GitHub label set and the commitlint allowed-scope enum are kept **
 
 The locked taxonomy is 19 labels; GitHub default labels were removed.
 Adding or removing any label must also update the commitlint
-scope-enum in the same PR (see §4).
+`scope-or-project` rule / allowed scopes in the same PR (see §4).
 
 | Category | Labels                                                                                                                                              |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

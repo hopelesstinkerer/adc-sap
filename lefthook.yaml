@@ -1,0 +1,20 @@
+pre-commit:
+  parallel: false
+  commands:
+    guard-branch:
+      run: bash scripts/guard-branch.sh
+      fail_text: 'Never commit directly to main, develop, or master. Use a feature/* branch.'
+    lint-staged:
+      run: pnpm exec lint-staged
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit $1
+
+pre-push:
+  commands:
+    nx-affected-build:
+      run: pnpm exec nx affected --target=build
+    nx-affected-test:
+      run: pnpm exec nx affected --target=test

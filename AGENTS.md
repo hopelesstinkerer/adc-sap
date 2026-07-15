@@ -19,7 +19,7 @@ Closes: #N   (or Refs: #N)
 ```
 
 - `<type>`: `feat` · `fix` · `docs` · `style` · `perf` · `refactor` · `test` · `build` · `ci` · `chore` · `revert`
-- `<scope>`: **mandatory**. Either a **meta scope** — one of `repo`, `tooling`, `ci`, `deps` (`deps` is commit-scope only — never a label) — or a **project scope** matching the `naming.md` project-name pattern (`<domain>-<layer>` / `<app>-app`). Meta scopes carry `scope:*` labels; project scopes are validated by a regex `scope-enum` and require a `scope:<domain>` label (added in the PR that introduces that domain's first project). See `CONTRIBUTING.md` §4.
+- `<scope>`: **mandatory**. Either a **meta scope** — one of `repo`, `tooling`, `ci`, `deps` (`deps` is commit-scope only — never a label) — or a **project scope** matching the `docs/architecture/naming.md` project-name pattern (`<domain>-<layer>` / `<app>-app`). Meta scopes carry `scope:*` labels; project scopes are validated by the commitlint `scope-or-project` rule (regex over the `<domain>-<layer>` / `<app>-app` pattern; meta scopes enumerated within the same rule) and require a `scope:<domain>` label (added in the PR that introduces that domain's first project). See `CONTRIBUTING.md` §4.
 - **Subject ≤ 50 characters.**
 - **Body: hard-wrap prose at 72 columns AND fill the lines.** Do not produce ragged fragments (e.g. a 10-char line next to a 71-char line). Break at clause/sentence boundaries, never mid-word. Each paragraph should be a block of near-full ~72-char lines. Lists, code blocks, and trailers may be short — prose must be wrapped.
 - **Footer: exactly one `Closes: #N`** (closes the issue when merged to `develop`) **or `Refs: #N`** (reference only). Mandatory — every commit maps to an issue.

@@ -42,8 +42,12 @@ All packages publish under the `@adc` npm scope.
 ## Commit scope and GitHub label
 
 - **Commit scope = project name.** A commit touching `auth-data-access` uses
-  `feat(auth-data-access): ...`. The commitlint `scope-enum` is kept in
-  lockstep with the label taxonomy (see `CONTRIBUTING.md` §4).
+  `feat(auth-data-access): ...`. Scope validation is enforced by the commitlint
+  `scope-or-project` rule (meta scopes `repo`/`tooling`/`ci`/`deps` enumerated;
+  project scopes matched against the `<domain>-<layer>` / `<app>-app` pattern
+  above). The literal `scope-enum` rule is intentionally disabled in favour of
+  this combined rule. Allowed scopes remain in lockstep with the label taxonomy
+  (see `CONTRIBUTING.md` §4).
 - **GitHub `scope:*` label = the project's domain.** A PR for `auth-data-access`
   is labeled `scope:auth` (matches the Nx `scope:<domain>` tag vocabulary).
 
